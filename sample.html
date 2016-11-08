@@ -17,6 +17,7 @@
 		<div id="container1" class="container"></div>
 		<div id="container2" class="container"></div>
 		<div id="container3" class="container"></div>
+		<div id="container4" class="container"></div>
 		<script src="rcolor.js"></script>
 		<script>
 			function render(id,a,color) {
@@ -28,7 +29,7 @@
 				span.style['border-radius'] = "3px";
 				container.appendChild(span);
 			}
-				
+
 			// bright and vivid
 			var container = document.getElementById('container1');
 			container.innerHTML = "";
@@ -36,7 +37,7 @@
 			for(a=1;a<=26;a++) {
 				render('container1',a,color1.get(true));
 			}
-			
+
 			// faded & subdued
 			var container = document.getElementById('container2');
 			container.innerHTML = "";
@@ -44,12 +45,21 @@
 			for(a=1;a<=26;a++) {
 				render('container2',a,color2.get(true,0.25,0.8));
 			}
-			
+
 			// lighter / faded
 			var container = document.getElementById('container3');
 			container.innerHTML = "";
+			var color3 = new RColor;
 			for(a=1;a<=26;a++) {
-				render('container3',a,color2.get(true,0.3,0.99));
+				render('container3',a,color3.get(true,0.3,0.99));
+			}
+
+			// fixed color from string
+			var container = document.getElementById('container4');
+			container.innerHTML = "";
+			var color4 = new RColor;
+			for(a=1;a<=26;a++) {
+				render('container4',a,color4.getFromString(a,true,0.3,0.99));
 			}
 		</script>
 	</body>

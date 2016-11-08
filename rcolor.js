@@ -4,13 +4,13 @@
 // inspired by http://martin.ankerl.com/2009/12/09/how-to-create-random-colors-programmatically/
 
 (function (root, factory) {
-    if (typeof exports === 'object') {
-        module.exports = factory;
-    } else if (typeof define === 'function' && define.amd) {
-        define(factory);
-    } else {
-        root.RColor = factory();
-    }
+  if (typeof exports === 'object') {
+    module.exports = factory;
+  } else if (typeof define === 'function' && define.amd) {
+    define(factory);
+  } else {
+    root.RColor = factory();
+  }
 }(this, function () {
 
 	var RColor = function() {
@@ -38,24 +38,39 @@
 		}
 		return [Math.floor(r*256),Math.floor(g*256),Math.floor(b*256)];
 	};
-	
+
 	RColor.prototype.padHex = function(str) {
 		if(str.length > this.hexwidth) return str;
 		return new Array(this.hexwidth - str.length + 1).join('0') + str;
 	};
-	
+
 	RColor.prototype.get = function(hex,saturation,value) {
 		this.hue += this.goldenRatio;
 		this.hue %= 1;
 		if(typeof saturation !== "number")	saturation = 0.5;
 		if(typeof value !== "number")		value = 0.95;
+		// console.log(this.hue);
 		var rgb = this.hsvToRgb(this.hue,saturation,value);
-		if(hex)
+		if(hex){
 			return "#" +  this.padHex(rgb[0].toString(16))
 						+ this.padHex(rgb[1].toString(16))
 						+ this.padHex(rgb[2].toString(16));
-		else 
+		}
+		else{
 			return rgb;
+		}
+	};
+
+	RColor.prototype.getFromString = function(string,hex,saturation,value) {
+    // var number = "0x";
+    // var length = string.length;
+    // for (var i = 0; i < length; i++){
+    //   number += string.charCodeAt(i).toString(16);
+    // }
+    // console.log(string,number);
+    // this.hue = (string % 100)/100;
+    // console.log(this.hue);
+		this.get(hex,saturation,value);
 	};
 
 	return RColor;
