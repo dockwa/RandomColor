@@ -60,11 +60,12 @@
 		},
 
 		decimalFromString: function(string){
-			var number = 0;
-	    var length = string.length;
-	    for (var i = 0; i < length; i++)
-	        number += string.charCodeAt(i).toString(10);
-	    return (parseInt(number) % 1000)/1000;
+		  var hash = 5381,
+		      i    = string.length
+
+		  while(i)
+		    hash = (hash * 33) ^ string.charCodeAt(--i)
+	    return (parseInt(hash >>> 0) % 100)/100;
 		},
 
 		// @options
@@ -72,16 +73,17 @@
 		//    saturation: value between 0 and 1
 		//    value: value between 0 and 1
 		getRGB: function(options) {
+			var hue;
 			if(this.hasOption('fromString', options)){
 				hue = this.decimalFromString(options['fromString']);
 			} else {
 				hue = Math.random();
 			}
-			this.hue += this.goldenRatio;
-			this.hue %= 1;
+			hue += this.goldenRatio;
+			hue %= 1;
 			saturation = this.getOption('saturation', options);
 			value = this.getOption('value', options);
-			return this.hsvToRgb(this.hue,saturation,value);
+			return this.hsvToRgb(hue,saturation,value);
 		},
 
 		getHex: function(options){

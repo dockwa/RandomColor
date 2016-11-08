@@ -1,0 +1,19 @@
+{
+  "name": "random-color",
+  "main": "random-color.js",
+  "homepage": "https://github.com/dockwa/RandomColor",
+  "authors": [
+    "Stuart Yamartino <stuart@dockwa.com>"
+  ],
+  "description": "Javascript module for generating random, distinguishable, pleasing color.",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "random-color",
+    "color"
+  ],
+  "license": "MIT"
+}
