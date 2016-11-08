@@ -15,6 +15,13 @@
     "random-color",
     "color"
   ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "license": "MIT",
-  "version": "1.0.1"
+  "version": "1.0.2"
 }
