@@ -1,4 +1,5 @@
 # NO LONGER USED BY DOCKWA
+[Commit that removes library](https://github.com/dockwa/dockwa-rails/commit/f59c855e28e1d35a8b833af2db7c08cc858e21da)
 
 # Random Color
 
