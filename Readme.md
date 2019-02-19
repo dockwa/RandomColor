@@ -1,3 +1,5 @@
+# NO LONGER USED BY DOCKWA
+
 # Random Color
 
 Random color is a simple javascript module for generating random colors that contrast enough to distinguish between one another, and are not too loud (by default, all colours can have readable black/dark font overlayed).
